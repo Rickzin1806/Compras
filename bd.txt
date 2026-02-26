@@ -1,0 +1,3 @@
+anon public: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ1ZW9raG96Y2RmaWhjZXV6Z3VoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxMTE3NTgsImV4cCI6MjA4NzY4Nzc1OH0.dQzKWW5VYFrW7YLWxXGoBpSKquy1eEMkpAJpiwisDhE
+
+url: https://vueokhozcdfihceuzguh.supabase.co
