@@ -13,7 +13,7 @@ const input = document.getElementById('item')
 
 // Carrega a lista de compras do Supabase
 async function carregarLista() {
-  const { data, error } = await supabase.from('lista_compras').select('*')
+  const { data, error } = await supabase.from('lista_de_compras').select('*')
   if (error) {
     console.error('Erro ao carregar lista:', error)
     return
@@ -47,7 +47,7 @@ window.adicionarItem = async function () {
 
 // Remove item da lista pelo ID
 window.removerItem = async function (id) {
-  const { error } = await supabase.from('lista_compras').delete().eq('id', id)
+  const { error } = await supabase.from('lista_de_compras').delete().eq('id', id)
   if (error) return alert('Erro ao remover: ' + error.message)
   carregarLista()
 }
