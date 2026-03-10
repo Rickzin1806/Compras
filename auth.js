@@ -1,4 +1,3 @@
-
 import { supabase } from './supabaseClient.js'
 
 // Função para login do usuário
@@ -39,4 +38,3 @@ document.addEventListener('keydown', function (event) {
     }
   }
 })
-    
