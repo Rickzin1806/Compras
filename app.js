@@ -34,7 +34,7 @@ window.adicionarItem = async function () {
   console.log('UsuÃ¡rio:', user)
   console.log('Item:', input.value)
 
-  const { error } = await supabase.from('lista_compras').insert({
+  const { error } = await supabase.from('lista_de_compras').insert({
     item: input.value,
     adicionado_por: user.id // Certifique-se que a coluna existe e Ã© do tipo uuid
   })
