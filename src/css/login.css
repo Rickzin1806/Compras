@@ -36,3 +36,13 @@ body {
     min-height: 100vh;
     padding: 20px;
 }
+
+.container {
+    background-color: var(--cor-branco);
+    padding: clamp(2rem, 5vm, 3rem);
+    border-radius: var(--raio);
+    box-shadow: 0 8px 24px var(--cor-sombra);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
