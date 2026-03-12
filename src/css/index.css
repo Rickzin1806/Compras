@@ -1,1 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double:wght@100..900&family=Iosevka+Charon+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+    --cor-primaria-1: #D8DBE2;
+    --cor-primaria-2: #A9BCD0;
+    --cor-primaria-3: #58A4B0;
+    --cor-primaria-4: #373F51;
+    --cor-bg: #1B1B1E;
+
+    --cor-branco:#fff;
+    --cor-preto:#000000;
+    --cor-sombra: rgba(0, 0, 0, 0.15);
+    --cor-texto:#333;
+
+    --fonte: "Iosevka Charon Mono", monospace;
+
+    --raio: 12px;
+    --transition: 0.3s ease;
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+        body {
+            font-family: var(--fonte);
+            background: #D8DBE2;
+            background: linear-gradient(90deg,rgba(216, 219, 226, 1) 0%, rgba(149, 190, 200, 1) 26%, rgba(88, 164, 176, 1) 50%, rgba(55, 63, 81, 1) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+    }
+}
