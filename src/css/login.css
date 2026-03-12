@@ -85,7 +85,7 @@ button {
     background-color: var(--cor-primaria-2);
     color: var(--cor-branco);
     cursor: pointer;
-    transition(--transition);
+    transition: var(--transition);
 }
 
 button.hover {
