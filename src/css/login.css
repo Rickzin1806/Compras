@@ -89,5 +89,5 @@ button {
 }
 
 button.hover {
-    background-color: var(--cor-primaria-1);
+    background-color: var(--cor-primaria-2);
 }
