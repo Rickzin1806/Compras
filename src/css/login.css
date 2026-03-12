@@ -7,30 +7,32 @@
     --cor-primaria-4: #373F51;
     --cor-bg: #1B1B1E;
 
-    --cor-branco:#fff;
-    --cor-preto:#000000;
+    --cor-branco: #fff;
+    --cor-preto: #000000;
     --cor-sombra: rgba(0, 0, 0, 0.15);
-    --cor-texto:#333;
+    --cor-texto: #333;
 
     --fonte: "Iosevka Charon Mono", monospace;
 
     --raio: 12px;
     --transition: 0.3s ease;
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
 
-        body {
-            font-family: var(--fonte);
-            background: #D8DBE2;
-            background: linear-gradient(90deg,rgba(216, 219, 226, 1) 0%, rgba(149, 190, 200, 1) 26%, rgba(88, 164, 176, 1) 50%, rgba(55, 63, 81, 1) 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte);
+    background: #D8DBE2;
+    background: linear-gradient(90deg, rgba(216, 219, 226, 1) 0%, rgba(149, 190, 200, 1) 26%, rgba(88, 164, 176, 1) 50%, rgba(55, 63, 81, 1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
