@@ -12,6 +12,16 @@
     --cor-sombra: rgba(0, 0, 0, 0.15);
     --cor-texto:#333;
 
+    --fonte: "Iosevka Charon Mono", monospace;
 
+    --raio: 12px;
+    --transition: 0.3s ease;
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+    }
 
 }
