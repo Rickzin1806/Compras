@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double:wght@100..900&family=Iosevka+Charon+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 :root {
-    --cor-primaria-1:#D8DBE2;
-    --cor-primaria-2:#A9BCD0;
-    --cor-primaria-3:#58A4B0;
-    --cor-primaria-4:#373F51;
-    --cor-primaria-5:#1B1B1E;
+    --cor-primaria-1: #D8DBE2;
+    --cor-primaria-2: #A9BCD0;
+    --cor-primaria-3: #58A4B0;
+    --cor-primaria-4: #373F51;
+    --cor-bg: #1B1B1E;
 }
