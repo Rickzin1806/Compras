@@ -42,7 +42,7 @@ body {
     border-radius: var(--raio);
     box-shadow: 0 8px 24px var(--cor-sombra);
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     text-align: center;
 }
 
@@ -67,4 +67,27 @@ input.focus {
     border-color: var(--cor-primaria-1);
     outline: none;
     box-shadow: 0 0 0 3px rgba(149, 190, 200, 0.1);
+}
+
+.botões {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: var(--raio);
+    background-color: var(--cor-primaria-2);
+    color: var(--cor-branco);
+    cursor: pointer;
+    transition(--transition);
+}
+
+button.hover {
+    background-color: var(--cor-primaria-1);
 }
