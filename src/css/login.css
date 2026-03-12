@@ -22,6 +22,12 @@
         padding: 0;
         box-sizing: border-box;
 
+        body {
+            font-family: var(--fonte);
+            background: #D8DBE2;
+            background: linear-gradient(90deg,rgba(216, 219, 226, 1) 0%, rgba(149, 190, 200, 1) 26%, rgba(88, 164, 176, 1) 50%, rgba(55, 63, 81, 1) 100%);
+        }
+
     }
 
 }
