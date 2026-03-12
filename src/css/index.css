@@ -29,10 +29,21 @@
 body {
     font-family: var(--fonte);
     background: #D8DBE2;
-    background: linear-gradient(90deg, rgba(216, 219, 226, 1) 0%, rgba(149, 190, 200, 1) 26%, rgba(88, 164, 176, 1) 50%, rgba(55, 63, 81, 1) 100%);
+    background: #373F51;
+    background: linear-gradient(90deg,rgba(55, 63, 81, 1) 1%, rgba(216, 219, 226, 1) 14%, rgba(149, 190, 200, 1) 26%, rgba(88, 164, 176, 1) 50%, rgba(216, 219, 226, 1) 86%, rgba(55, 63, 81, 1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+}
+
+.container {
+    background-color: var(--cor-branco);
+    padding: clamp(2rem, 5vm, 3rem);
+    border-radius: var(--raio);
+    box-shadow: 0 8px 24px var(--cor-sombra);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
 }
