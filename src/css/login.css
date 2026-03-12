@@ -29,7 +29,38 @@
 body {
     font-family: var(--fonte);
     background: #D8DBE2;
-    background: #373F51;
+    background: #373F51;.container
+    background-color: var(--cor-branco);
+    padding: clamp(2rem, 5vm, 3rem);
+    border-radius: var(--raio);
+    box-shadow: 0 8px 24px var(--cor-sombra);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.titulo {
+    font-size: clamp(1.5rem, 2vm + 1rem, 2rem);
+    color: var(--cor-texto);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border: 1PX solid var(--cor-preto);
+    border-radius: var(--raio);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+input.focus {
+    border-color: var(--cor-primaria-1);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(149, 190, 200, 1);
+}
     background: #373F51;
    background: #373F51;
    background: linear-gradient(90deg,rgba(55, 63, 81, 1) 1%, rgba(149, 190, 200, 1) 15%, rgba(88, 164, 176, 1) 35%, hwb(188 35% 31%) 65%, rgba(149, 190, 200, 1) 85%, rgba(55, 63, 81, 1) 100%);
