@@ -54,7 +54,7 @@ body {
 }
 
 input {
-    width: 100%;
+    width: 80%;
     padding: 14px;
     margin: 10px 0;
     border: 1px solid var(--cor-preto);
@@ -77,6 +77,7 @@ input.focus {
 }
 
 button {
+    width: 80%;
     padding: 12px;
     font-size: 1rem;
     font-weight: 500;
