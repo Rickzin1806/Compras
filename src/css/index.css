@@ -25,8 +25,8 @@
 
 body {
     font-family: var(--fonte);
-    background: #373F51;
-    background: linear-gradient(90deg,rgba(55, 63, 81, 1) 1%, rgba(61, 119, 125, 1) 35%, rgba(64, 137, 145, 1) 50%, rgba(61, 119, 125, 1) 65%, rgba(55, 63, 81, 1) 100%);
+    background: #BB9457;
+    background: linear-gradient(96deg,rgba(187, 148, 87, 1) 0%, rgba(153, 88, 42, 1) 50%, rgba(187, 148, 87, 1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
