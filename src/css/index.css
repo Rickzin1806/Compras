@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
-:root {
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');:root {
     --cor-primaria-1: #D8DBE2;
     --cor-primaria-2: #A9BCD0;
-    --cor-primaria-3: #58A4B0;
+    --cor-primaria-3: #58b0a4;
     --cor-primaria-4: #373F51;
     --cor-bg: #1B1B1E;
 
@@ -11,7 +9,6 @@
     --cor-preto: #000000;
     --cor-sombra: rgba(0, 0, 0, 0.15);
     --cor-texto: #333;
-
     --fonte: "Roboto Condensed", monospace;
 
     --raio: 12px;
@@ -28,10 +25,8 @@
 
 body {
     font-family: var(--fonte);
-    background: #D8DBE2;
     background: #373F51;
-    background: #373F51;
-    background: linear-gradient(90deg,rgba(55, 63, 81, 1) 1%, rgba(149, 190, 200, 1) 25%, rgba(88, 164, 176, 1) 51%, rgba(149, 190, 200, 1) 75%, rgba(55, 63, 81, 1) 100%);
+    background: linear-gradient(90deg,rgba(55, 63, 81, 1) 1%, rgba(61, 119, 125, 1) 35%, rgba(64, 137, 145, 1) 50%, rgba(61, 119, 125, 1) 65%, rgba(55, 63, 81, 1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,7 +39,22 @@ body {
     padding: clamp(2rem, 5vm, 3rem);
     border-radius: var(--raio);
     box-shadow: 0 8px 24px var(--cor-sombra);
-    width: 90%;
+    width: 80%;
     max-width: 400px;
     text-align: center;
+    padding-block: 20px;
+}
+
+#Logo {
+    width: 150px;
+    height: auto;
+    margin-block: 20px;
+    border-radius: var(--raio);
+}
+
+.titulo {
+    font-size: clamp(1.5rem, 2vh + 1rem, 2rem);
+    color: var(--cor-texto);
+    margin-block: 20px;
+    font-weight: 500;
 }
