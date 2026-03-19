@@ -92,7 +92,7 @@ button {
     transition: var(--transition);
 }
 
-button.hover {
+button:hover {
     background-color: var(--cor-primaria-1);
 }
 
