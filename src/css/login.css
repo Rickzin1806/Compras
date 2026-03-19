@@ -9,7 +9,7 @@
     --cor-preto: #000000;
     --cor-sombra: rgba(0, 0, 0, 0.15);
     --cor-texto: #333;
-    --fonte: "Iosevka Charon Mono", monospace;
+    --fonte: "Roboto Condensed", monospace;
 
     --raio: 12px;
     --transition: 0.3s ease;
@@ -48,7 +48,7 @@ body {
 .titulo {
     font-size: clamp(1.5rem, 2vm + 1rem, 2rem);
     color: var(--cor-texto);
-    margin-bottom: 2.5rem;
+    margin-block: 20px;
     font-weight: 500;
 }
 
