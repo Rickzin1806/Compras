@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --cor-primaria-1: #433633;
+    --cor-primaria-1: #DECBB7;
     --cor-primaria-2: #5C5552;
     --cor-primaria-3: #8F857D;
-    --cor-primaria-4: #DECBB7;
+    --cor-primaria-4: #433633;
     --cor-bg: #F7F0F5;
 
     --cor-branco: #fff;
