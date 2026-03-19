@@ -41,7 +41,7 @@ body {
     padding: clamp(2rem, 5vm, 3rem);
     border-radius: var(--raio);
     box-shadow: 0 8px 24px var(--cor-sombra);
-    width: 100%;
+    width: 90%;
     max-width: 500px;
     text-align: center;
 }
