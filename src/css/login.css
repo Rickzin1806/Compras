@@ -50,7 +50,7 @@ body {
 .titulo {
     font-size: clamp(1.5rem, 2vm + 1rem, 2rem);
     color: var(--cor-texto);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2,0rem;
     font-weight: 500;
 }
 
