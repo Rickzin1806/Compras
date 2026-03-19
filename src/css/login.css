@@ -46,7 +46,7 @@ body {
 }
 
 .titulo {
-    font-size: clamp(1.5rem, 2vm + 1rem, 2rem);
+    font-size: clamp(1.5rem, 2vh + 1rem, 2rem);
     color: var(--cor-texto);
     margin-block: 20px;
     font-weight: 500;
