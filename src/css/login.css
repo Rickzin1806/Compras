@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --cor-primaria-1: #FFE6A7;
-    --cor-primaria-2: #99582A;
-    --cor-primaria-3: #432818;
-    --cor-primaria-4: #BB9457;
-    --cor-bg: #6F1D1B;
+    --cor-primaria-1: #433633;
+    --cor-primaria-2: #5C5552;
+    --cor-primaria-3: #8F857D;
+    --cor-primaria-4: #DECBB7;
+    --cor-bg: #F7F0F5;
 
     --cor-branco: #fff;
     --cor-preto: #000000;
@@ -27,8 +27,8 @@
 
 body {
     font-family: var(--fonte);
-    background: #BB9457;
-    background: linear-gradient(96deg,rgba(187, 148, 87, 1) 0%, rgba(153, 88, 42, 1) 50%, rgba(187, 148, 87, 1) 100%);
+    background: #8F857D;
+    background: linear-gradient(223deg,rgba(143, 133, 125, 1) 0%, rgba(222, 203, 183, 1) 50%, rgba(143, 133, 125, 1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
