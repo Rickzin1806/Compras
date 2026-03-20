@@ -48,7 +48,7 @@ body {
 }
 
 #Logo {
-    width: 210PX;
+    width: 100PX;
     height: auto;
     margin-block: 20px;
     border-radius: var(--raio);
