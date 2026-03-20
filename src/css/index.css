@@ -89,6 +89,15 @@ input.focus {
     margin-top: 20px;
 }
 
+.sair {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
 button {
     width: 80%;
     padding: 12px;
