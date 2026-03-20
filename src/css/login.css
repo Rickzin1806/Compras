@@ -25,16 +25,15 @@
     box-sizing: border-box;
 }
 
-body {
-    position: fixed;
-    font-family: var(--fonte);
-    background: #8F857D;
-    background: linear-gradient(223deg,rgba(143, 133, 125, 1) 0%, rgba(222, 203, 183, 1) 50%, rgba(143, 133, 125, 1) 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+body { 
+    font-family: var(--fonte); 
+    background: #8F857D; 
+    background: linear-gradient(223deg,rgba(143, 133, 125, 1) 0%, rgba(222, 203, 183, 1) 50%, rgba(143, 133, 125, 1) 100%); 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    padding: 20px; 
 }
 
 .container {
