@@ -98,7 +98,6 @@ button {
     border-radius: var(--raio);
     background-color: var(--cor-primaria-4);
     color: var(--cor-branco);
-    cursor: pointer;
     transition: var(--transition);
 }
 
