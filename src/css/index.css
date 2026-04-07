@@ -68,7 +68,6 @@ input {
     width: 80%;
     padding: 14px;
     margin: 10px 0;
-    border: 1px solid var(--cor-preto);
     border-radius: var(--raio);
     font-size: 1rem;
     transition: var(--transition);
