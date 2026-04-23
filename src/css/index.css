@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Compras</title>
+    <title>Lista de Compras Pro</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
 
         :root {
             --cor-primaria-1: #DECBB7;
@@ -16,7 +16,7 @@
             --cor-branco: #fff;
             --cor-sombra: rgba(0, 0, 0, 0.15);
             --cor-texto: #333;
-            --fonte: "Roboto Condensed", monospace;
+            --fonte: "Roboto Condensed", sans-serif;
             --raio: 12px;
             --transition: 0.3s ease;
         }
@@ -25,12 +25,12 @@
 
         body {
             font-family: var(--fonte);
-            background: linear-gradient(223deg, rgba(143,133,125,1) 0%, rgba(222,203,183,1) 50%, rgba(143,133,125,1) 100%);
+            background: linear-gradient(223deg, #8F857D 0%, #DECBB7 50%, #8F857D 100%);
             display: flex;
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            padding: 30px 20px;
+            padding: 30px 10px;
         }
 
         .container {
@@ -46,13 +46,13 @@
         }
 
         .titulo {
-            font-size: clamp(1.3rem, 2vh + 0.8rem, 1.7rem);
+            font-size: 1.7rem;
             color: var(--cor-texto);
-            font-weight: 600;
             text-align: center;
+            margin-bottom: 5px;
         }
 
-        /* ===== FORMULÁRIO DE ADIÇÃO ===== */
+        /* ===== FORMULÁRIO ===== */
         .form-add {
             display: flex;
             flex-direction: column;
@@ -65,112 +65,85 @@
         .form-row {
             display: flex;
             gap: 8px;
-            align-items: center;
         }
 
-        .form-add input,
-        .form-add select {
+        .form-add input, .form-add select {
             font-family: var(--fonte);
-            font-size: 0.92rem;
+            font-size: 0.95rem;
             border: 1.5px solid #ddd;
             border-radius: 8px;
-            padding: 8px 10px;
-            background: var(--cor-branco);
-            color: var(--cor-texto);
-            transition: var(--transition);
-            width: auto !important;
-        }
-
-        .form-add input:focus,
-        .form-add select:focus {
-            border-color: var(--cor-primaria-3);
+            padding: 10px;
             outline: none;
-            box-shadow: 0 0 0 3px rgba(143,133,125,0.15);
+            transition: var(--transition);
         }
 
-        #inputItem  { flex: 1; }
-        #inputQtd   { width: 70px !important; text-align: center; }
-        #inputCat   { flex: 1; }
+        .form-add input:focus { border-color: var(--cor-primaria-3); }
 
-        .form-add .btn-adicionar {
-            width: 40px !important;
-            height: 38px !important;
-            padding: 0 !important;
-            flex-shrink: 0;
+        #inputItem { flex: 2; }
+        #inputQtd { width: 65px; text-align: center; }
+        #inputCat { flex: 1; min-width: 100px; }
+
+        .btn-adicionar {
+            width: 42px;
             background-color: var(--cor-primaria-4);
-            color: var(--cor-branco);
+            color: white;
             border: none;
             border-radius: 8px;
-            font-size: 1.4rem;
-            font-weight: bold;
+            font-size: 1.5rem;
             cursor: pointer;
-            transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .form-add .btn-adicionar:hover {
-            background-color: var(--cor-primaria-2);
-        }
+        .btn-adicionar:hover { background-color: var(--cor-primaria-2); }
 
-        /* Label dos campos */
-        .form-labels {
-            display: flex;
-            gap: 8px;
-            font-size: 0.72rem;
-            color: var(--cor-primaria-3);
-            padding: 0 2px;
-        }
-        .form-labels span:first-child  { flex: 1; }
-        .form-labels span:nth-child(2) { width: 70px; text-align: center; }
-        .form-labels span:nth-child(3) { flex: 1; }
-        .form-labels span:last-child   { width: 40px; }
-
-        /* ===== FILTRO DE CATEGORIAS ===== */
+        /* ===== FILTROS ===== */
         .filtros {
             display: flex;
             gap: 6px;
             flex-wrap: wrap;
+            padding-bottom: 5px;
         }
 
         .filtro-btn {
-            width: auto !important;
-            padding: 4px 12px !important;
-            font-size: 0.78rem;
+            padding: 5px 12px;
+            font-size: 0.8rem;
             border: 1.5px solid var(--cor-primaria-1);
             border-radius: 20px;
             background: transparent;
             color: var(--cor-primaria-4);
             cursor: pointer;
-            font-family: var(--fonte);
             transition: var(--transition);
         }
 
-        .filtro-btn.ativo,
-        .filtro-btn:hover {
+        .filtro-btn.ativo {
             background-color: var(--cor-primaria-4);
-            color: var(--cor-branco);
+            color: white;
             border-color: var(--cor-primaria-4);
         }
 
-        /* ===== GRUPO DE CATEGORIA ===== */
-        .grupo-categoria {
+        /* ===== LISTA ===== */
+        .lista-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 15px;
+            max-height: 450px;
+            overflow-y: auto;
+            padding-right: 5px;
         }
 
+        .grupo-categoria { margin-bottom: 10px; }
+
         .grupo-titulo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.78rem;
-            font-weight: 600;
+            font-size: 0.75rem;
+            font-weight: 700;
             color: var(--cor-primaria-3);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 2px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
         }
 
         .grupo-titulo::after {
@@ -180,114 +153,51 @@
             background: var(--cor-primaria-1);
         }
 
-        /* ===== LISTA ===== */
-        .lista-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            max-height: 400px;
-            overflow-y: auto;
-            padding-right: 2px;
-        }
-
-        .lista-wrapper::-webkit-scrollbar { width: 4px; }
-        .lista-wrapper::-webkit-scrollbar-track { background: #f0f0f0; border-radius: 4px; }
-        .lista-wrapper::-webkit-scrollbar-thumb { background: var(--cor-primaria-1); border-radius: 4px; }
-
-        .lista {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        /* ===== CADA ITEM ===== */
         .item {
             display: flex;
             align-items: center;
             gap: 10px;
             background-color: var(--cor-bg);
             border-radius: 8px;
-            padding: 9px 12px;
+            padding: 10px 12px;
+            margin-bottom: 6px;
             transition: var(--transition);
         }
 
-        .item:hover { background-color: #ecddd4; }
+        .item.concluido { opacity: 0.7; }
 
-        /* Ícone preto à esquerda */
-        .item .icone-lista {
-            width: 24px;
-            height: 24px;
-            min-width: 24px;
-            background-color: var(--cor-primaria-4);
+        .icone-check {
+            width: 22px;
+            height: 22px;
+            background: var(--cor-primaria-4);
             border-radius: 4px;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-            flex-shrink: 0;
         }
 
-        .item .icone-lista svg { width: 14px; height: 14px; }
+        .concluido .icone-check { background: var(--cor-primaria-3); }
 
-        .item.concluido .icone-lista { background-color: var(--cor-primaria-3); }
+        .item-texto { flex: 1; font-size: 0.95rem; }
+        .concluido .item-texto { text-decoration: line-through; color: #888; }
 
-        /* Texto do item */
-        .item .item-texto {
-            flex: 1;
-            font-size: 0.93rem;
-            color: var(--cor-texto);
-            text-align: left;
-            word-break: break-word;
+        .item-qtd {
+            background: var(--cor-primaria-2);
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 12px;
         }
 
-        .item.concluido .item-texto {
-            text-decoration: line-through;
-            color: var(--cor-primaria-3);
-        }
-
-        /* Badge de quantidade */
-        .item .item-qtd {
-            background-color: var(--cor-primaria-4);
-            color: var(--cor-branco);
-            font-size: 0.72rem;
-            font-weight: 600;
-            padding: 2px 7px;
-            border-radius: 10px;
-            flex-shrink: 0;
-            min-width: 28px;
-            text-align: center;
-        }
-
-        .item.concluido .item-qtd {
-            background-color: var(--cor-primaria-3);
-        }
-
-        /* Botão remover — lado direito */
-        .item .btn-remover {
-            width: auto !important;
-            flex-shrink: 0;
-            padding: 4px 9px !important;
-            font-size: 0.72rem;
-            background-color: #c0392b;
-            color: var(--cor-branco);
+        .btn-remover {
+            background: #e74c3c;
+            color: white;
             border: none;
+            padding: 5px 8px;
             border-radius: 6px;
+            font-size: 0.7rem;
             cursor: pointer;
-            transition: var(--transition);
-            font-family: var(--fonte);
-            font-weight: 500;
-        }
-
-        .item .btn-remover:hover { background-color: #922b21; }
-
-        /* ===== MENSAGEM VAZIA ===== */
-        .lista-vazia {
-            text-align: center;
-            color: var(--cor-primaria-3);
-            font-size: 0.9rem;
-            padding: 24px 0;
         }
 
         /* ===== RODAPÉ ===== */
@@ -295,52 +205,37 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.82rem;
-            color: var(--cor-primaria-3);
-            padding-top: 4px;
+            padding-top: 15px;
             border-top: 1px solid var(--cor-primaria-1);
+            font-size: 0.85rem;
         }
 
-        .rodape .btn-limpar {
-            width: auto !important;
-            padding: 5px 14px !important;
-            font-size: 0.8rem;
-            background-color: var(--cor-primaria-1);
-            color: var(--cor-primaria-4);
+        .btn-limpar {
+            padding: 6px 12px;
+            background: var(--cor-primaria-1);
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: var(--transition);
-            font-family: var(--fonte);
             font-weight: 600;
+            color: var(--cor-primaria-4);
         }
 
-        .rodape .btn-limpar:hover {
-            background-color: var(--cor-primaria-3);
-            color: var(--cor-branco);
-        }
-
-        @media (max-width: 360px) {
-            .container { padding: 1rem; }
-            .item .item-texto { font-size: 0.85rem; }
-        }
+        /* Scrollbar */
+        .lista-wrapper::-webkit-scrollbar { width: 5px; }
+        .lista-wrapper::-webkit-scrollbar-thumb { background: var(--cor-primaria-3); border-radius: 10px; }
     </style>
 </head>
 <body>
+
 <div class="container">
     <h1 class="titulo">🛒 Lista de Compras</h1>
 
-    <!-- Formulário -->
     <div class="form-add">
-        <div class="form-labels">
-            <span>Item</span>
-            <span>Qtd</span>
-            <span>Categoria</span>
-            <span></span>
+        <div class="form-row">
+            <input type="text" id="inputItem" placeholder="O que comprar?" />
+            <input type="number" id="inputQtd" value="1" min="1" />
         </div>
         <div class="form-row">
-            <input type="text"   id="inputItem" placeholder="Nome do item..." />
-            <input type="text"   id="inputQtd"  placeholder="1" />
             <select id="inputCat">
                 <option value="Geral">🏷️ Geral</option>
                 <option value="Hortifruti">🥦 Hortifruti</option>
@@ -350,181 +245,143 @@
                 <option value="Bebidas">🧃 Bebidas</option>
                 <option value="Limpeza">🧹 Limpeza</option>
                 <option value="Higiene">🧴 Higiene</option>
-                <option value="Congelados">🧊 Congelados</option>
             </select>
-            <button class="btn-adicionar" onclick="adicionarItem()" title="Adicionar (Enter)">+</button>
+            <button class="btn-adicionar" onclick="adicionarItem()">+</button>
         </div>
     </div>
 
-    <!-- Filtros -->
-    <div class="filtros" id="filtros">
-        <button class="filtro-btn ativo" onclick="filtrar('Todos', this)">Todos</button>
-    </div>
+    <div class="filtros" id="filtros"></div>
 
-    <!-- Lista agrupada -->
-    <div class="lista-wrapper" id="listaWrapper">
-        <p class="lista-vazia" id="msg-vazia">Nenhum item ainda. Adicione algo! 😊</p>
-    </div>
+    <div class="lista-wrapper" id="listaWrapper"></div>
 
-    <!-- Rodapé -->
     <div class="rodape">
         <span id="contador">0 itens</span>
-        <button class="btn-limpar" onclick="limparLista()">Limpar tudo</button>
+        <button class="btn-limpar" onclick="limparLista()">Limpar Tudo</button>
     </div>
 </div>
 
 <script>
-    const inputItem = document.getElementById('inputItem');
-    const inputQtd  = document.getElementById('inputQtd');
-    const inputCat  = document.getElementById('inputCat');
-    const wrapper   = document.getElementById('listaWrapper');
-    const msgVazia  = document.getElementById('msg-vazia');
-    const contador  = document.getElementById('contador');
-    const filtrosEl = document.getElementById('filtros');
-
-    const ICONE_SVG = `
-        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="1" y="1" width="14" height="14" rx="2" stroke="white" stroke-width="1.5"/>
-            <line x1="4" y1="5.5"  x2="12" y2="5.5"  stroke="white" stroke-width="1.4" stroke-linecap="round"/>
-            <line x1="4" y1="8.5"  x2="12" y2="8.5"  stroke="white" stroke-width="1.4" stroke-linecap="round"/>
-            <line x1="4" y1="11.5" x2="8"  y2="11.5" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
-        </svg>`;
-
     let itens = JSON.parse(localStorage.getItem('listaCompras') || '[]');
     let filtroAtivo = 'Todos';
+
+    const wrapper = document.getElementById('listaWrapper');
+    const inputItem = document.getElementById('inputItem');
+    const inputQtd = document.getElementById('inputQtd');
+    const inputCat = document.getElementById('inputCat');
+    const contador = document.getElementById('contador');
+    const filtrosEl = document.getElementById('filtros');
 
     function salvar() {
         localStorage.setItem('listaCompras', JSON.stringify(itens));
     }
 
-    function atualizarContador() {
-        const total = itens.length;
-        const concluidos = itens.filter(i => i.concluido).length;
-        contador.textContent = total === 0
-            ? '0 itens'
-            : `${concluidos}/${total} marcados`;
-    }
+    function adicionarItem() {
+        const texto = inputItem.value.trim();
+        if (!texto) return inputItem.focus();
 
-    function atualizarFiltros() {
-        const cats = ['Todos', ...new Set(itens.map(i => i.categoria))];
-        filtrosEl.innerHTML = '';
-        cats.forEach(cat => {
-            const btn = document.createElement('button');
-            btn.className = 'filtro-btn' + (cat === filtroAtivo ? ' ativo' : '');
-            btn.textContent = cat;
-            btn.onclick = () => filtrar(cat, btn);
-            filtrosEl.appendChild(btn);
-        });
-    }
+        const novoItem = {
+            id: Date.now(),
+            texto: texto,
+            qtd: inputQtd.value || 1,
+            categoria: inputCat.value,
+            concluido: false
+        };
 
-    function filtrar(cat, btn) {
-        filtroAtivo = cat;
-        document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
-        btn.classList.add('ativo');
+        itens.push(novoItem);
+        inputItem.value = '';
+        inputQtd.value = '1';
+        salvar();
         renderizar();
+        inputItem.focus();
+    }
+
+    function toggleItem(id) {
+        const item = itens.find(i => i.id === id);
+        if (item) item.concluido = !item.concluido;
+        salvar();
+        renderizar();
+    }
+
+    function removerItem(id) {
+        itens = itens.filter(i => i.id !== id);
+        salvar();
+        renderizar();
+    }
+
+    function limparLista() {
+        if (itens.length > 0 && confirm('Deseja apagar toda a lista?')) {
+            itens = [];
+            salvar();
+            renderizar();
+        }
     }
 
     function renderizar() {
         wrapper.innerHTML = '';
+        
+        // Atualizar Filtros Dinamicamente
+        const categoriasPresentes = ['Todos', ...new Set(itens.map(i => i.categoria))];
+        filtrosEl.innerHTML = '';
+        categoriasPresentes.forEach(cat => {
+            const btn = document.createElement('button');
+            btn.className = `filtro-btn ${filtroAtivo === cat ? 'ativo' : ''}`;
+            btn.textContent = cat;
+            btn.onclick = () => { filtroAtivo = cat; renderizar(); };
+            filtrosEl.appendChild(btn);
+        });
 
-        const itensFiltrados = filtroAtivo === 'Todos'
-            ? itens
+        const itensFiltrados = filtroAtivo === 'Todos' 
+            ? itens 
             : itens.filter(i => i.categoria === filtroAtivo);
 
         if (itensFiltrados.length === 0) {
-            const p = document.createElement('p');
-            p.className = 'lista-vazia';
-            p.textContent = itens.length === 0
-                ? 'Nenhum item ainda. Adicione algo! 😊'
-                : 'Nenhum item nessa categoria.';
-            wrapper.appendChild(p);
+            wrapper.innerHTML = '<p style="text-align:center; color:#888; padding:20px;">Lista vazia...</p>';
         } else {
-            // Agrupar por categoria
+            // Agrupamento
             const grupos = {};
             itensFiltrados.forEach(item => {
                 if (!grupos[item.categoria]) grupos[item.categoria] = [];
                 grupos[item.categoria].push(item);
             });
 
-            Object.entries(grupos).forEach(([cat, grupoItens]) => {
-                const div = document.createElement('div');
-                div.className = 'grupo-categoria';
-
-                // Título do grupo (só mostra se filtro = Todos)
+            for (const cat in grupos) {
+                const grupoDiv = document.createElement('div');
+                grupoDiv.className = 'grupo-categoria';
+                
                 if (filtroAtivo === 'Todos') {
-                    const titulo = document.createElement('div');
-                    titulo.className = 'grupo-titulo';
-                    titulo.textContent = cat;
-                    div.appendChild(titulo);
+                    grupoDiv.innerHTML = `<div class="grupo-titulo">${cat}</div>`;
                 }
 
-                const ul = document.createElement('ul');
-                ul.className = 'lista';
-
-                grupoItens.forEach(item => {
-                    const index = itens.indexOf(item);
-                    const li = document.createElement('li');
-                    li.className = 'item' + (item.concluido ? ' concluido' : '');
-                    li.innerHTML = `
-                        <div class="icone-lista" onclick="toggleConcluido(${index})" title="Marcar como concluído">
-                            ${ICONE_SVG}
+                grupos[cat].forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = `item ${item.concluido ? 'concluido' : ''}`;
+                    itemDiv.innerHTML = `
+                        <div class="icone-check" onclick="toggleItem(${item.id})">
+                            <svg width="12" height="12" viewBox="0 0 16 16" fill="white">
+                                <path d="M13.485 1.929a1 1 0 0 1 1.414 1.414L6.343 11.9a1 1 0 0 1-1.414 0L1.1 8.07a1 1 0 0 1 1.414-1.414l3.129 3.128 7.442-7.855z"/>
+                            </svg>
                         </div>
                         <span class="item-texto">${item.texto}</span>
                         <span class="item-qtd">${item.qtd}</span>
-                        <button class="btn-remover" onclick="removerItem(${index})">Remover</button>
+                        <button class="btn-remover" onclick="removerItem(${item.id})">Apagar</button>
                     `;
-                    ul.appendChild(li);
+                    grupoDiv.appendChild(itemDiv);
                 });
-
-                div.appendChild(ul);
-                wrapper.appendChild(div);
-            });
+                wrapper.appendChild(grupoDiv);
+            }
         }
 
-        atualizarContador();
-        atualizarFiltros();
+        const concluidos = itens.filter(i => i.concluido).length;
+        contador.textContent = `${concluidos}/${itens.length} marcados`;
     }
 
-    function adicionarItem() {
-        const texto = inputItem.value.trim();
-        if (!texto) { inputItem.focus(); return; }
-        const qtd = inputQtd.value.trim() || '1';
-        const categoria = inputCat.value;
-
-        itens.push({ texto, qtd, categoria, concluido: false });
-        inputItem.value = '';
-        inputQtd.value  = '';
-        salvar();
-        renderizar();
-        inputItem.focus();
-    }
-
-    function removerItem(index) {
-        itens.splice(index, 1);
-        salvar();
-        renderizar();
-    }
-
-    function toggleConcluido(index) {
-        itens[index].concluido = !itens[index].concluido;
-        salvar();
-        renderizar();
-    }
-
-    function limparLista() {
-        if (itens.length === 0) return;
-        if (confirm('Limpar toda a lista?')) {
-            itens = [];
-            salvar();
-            filtroAtivo = 'Todos';
-            renderizar();
-        }
-    }
-
-    inputItem.addEventListener('keydown', e => { if (e.key === 'Enter') adicionarItem(); });
-    inputQtd.addEventListener ('keydown', e => { if (e.key === 'Enter') adicionarItem(); });
+    // Atalho Enter
+    [inputItem, inputQtd].forEach(el => {
+        el.addEventListener('keypress', e => { if (e.key === 'Enter') adicionarItem(); });
+    });
 
     renderizar();
 </script>
+
 </body>
 </html>
