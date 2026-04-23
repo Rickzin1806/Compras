@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
@@ -15,8 +16,6 @@
 
     --raio: 12px;
     --transition: 0.3s ease;
-
-
 }
 
 * {
@@ -28,7 +27,7 @@
 body { 
     font-family: var(--fonte); 
     background: #8F857D; 
-    background: linear-gradient(223deg,rgba(143, 133, 125, 1) 0%, rgba(222, 203, 183, 1) 50%, rgba(143, 133, 125, 1) 100%); 
+    background: linear-gradient(223deg, rgba(143, 133, 125, 1) 0%, rgba(222, 203, 183, 1) 50%, rgba(143, 133, 125, 1) 100%); 
     display: flex; 
     justify-content: center; 
     align-items: center; 
@@ -39,7 +38,7 @@ body {
 .container {
     position: relative;
     background-color: var(--cor-branco);
-    padding: clamp(2rem, 5vm, 3rem);
+    padding: clamp(2rem, 5vw, 3rem); /* ✅ CORRIGIDO: "5vm" → "5vw" */
     border-radius: var(--raio);
     box-shadow: 0 8px 24px var(--cor-sombra);
     width: 80%;
@@ -73,7 +72,7 @@ input {
     transition: var(--transition);
 }
 
-input.focus {
+input:focus { /* ✅ CORRIGIDO: ".focus" → ":focus" */
     border-color: var(--cor-primaria-1);
     outline: none;
     box-shadow: 0 0 0 3px rgba(149, 190, 200, 0.1);
@@ -104,10 +103,9 @@ button:hover {
     background-color: var(--cor-primaria-1);
 }
 
-@media (max-width:360px) {
+@media (max-width: 360px) {
     .container {
         padding: 1.5rem;
-
     }
     input, button {
         font-size: 0.95rem;
