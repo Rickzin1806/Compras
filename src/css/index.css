@@ -1,113 +1,342 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root {
-    --cor-primaria-1: #DECBB7;
-    --cor-primaria-2: #5C5552;
-    --cor-primaria-3: #8F857D;
-    --cor-primaria-4: #433633;
-    --cor-bg: #F7F0F5;
+        :root {
+            --cor-primaria-1: #DECBB7;
+            --cor-primaria-2: #5C5552;
+            --cor-primaria-3: #8F857D;
+            --cor-primaria-4: #433633;
+            --cor-bg: #F7F0F5;
+            --cor-branco: #fff;
+            --cor-preto: #000000;
+            --cor-sombra: rgba(0, 0, 0, 0.15);
+            --cor-texto: #333;
+            --fonte: "Roboto Condensed", monospace;
+            --raio: 12px;
+            --transition: 0.3s ease;
+        }
 
-    --cor-branco: #fff;
-    --cor-preto: #000000;
-    --cor-sombra: rgba(0, 0, 0, 0.15);
-    --cor-texto: #333;
-    --fonte: "Roboto Condensed", monospace;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    --raio: 12px;
-    --transition: 0.3s ease;
-}
+        body {
+            font-family: var(--fonte);
+            background: linear-gradient(223deg, rgba(143,133,125,1) 0%, rgba(222,203,183,1) 50%, rgba(143,133,125,1) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        .container {
+            position: relative;
+            background-color: var(--cor-branco);
+            border-radius: var(--raio);
+            box-shadow: 0 8px 24px var(--cor-sombra);
+            width: 90%;
+            max-width: 400px;
+            padding: 24px 24px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
 
-body { 
-    font-family: var(--fonte); 
-    background: #8F857D; 
-    background: linear-gradient(223deg, rgba(143, 133, 125, 1) 0%, rgba(222, 203, 183, 1) 50%, rgba(143, 133, 125, 1) 100%); 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    min-height: 100vh; 
-    padding: 20px; 
-}
+        .titulo {
+            font-size: clamp(1.4rem, 2vh + 1rem, 1.8rem);
+            color: var(--cor-texto);
+            font-weight: 600;
+            text-align: center;
+        }
 
-.container {
-    position: relative;
-    background-color: var(--cor-branco);
-    padding: clamp(2rem, 5vw, 3rem); /* ✅ CORRIGIDO: "5vm" → "5vw" */
-    border-radius: var(--raio);
-    box-shadow: 0 8px 24px var(--cor-sombra);
-    width: 80%;
-    max-width: 350px;
-    height: 415px;
-    text-align: center;
-    padding-block: 20px;
-}
+        /* Input + botão adicionar */
+        .input-area {
+            display: flex;
+            gap: 8px;
+        }
 
-#Logo {
-    position: absolute;
-    top: 330px;
-    left: 1px;
-    width: 105px;
-    height: auto;
-}
+        .input-area input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1.5px solid #ddd;
+            border-radius: var(--raio);
+            font-size: 1rem;
+            font-family: var(--fonte);
+            transition: var(--transition);
+        }
 
-.titulo {
-    font-size: clamp(1.5rem, 2vh + 1rem, 2rem);
-    color: var(--cor-texto);
-    margin-block: 20px;
-    font-weight: 500;
-}
+        .input-area input:focus {
+            border-color: var(--cor-primaria-3);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(143, 133, 125, 0.15);
+        }
 
-input {
-    width: 80%;
-    padding: 14px;
-    margin: 10px 0;
-    border-radius: var(--raio);
-    font-size: 1rem;
-    transition: var(--transition);
-}
+        .btn-adicionar {
+            padding: 10px 16px;
+            background-color: var(--cor-primaria-4);
+            color: var(--cor-branco);
+            border: none;
+            border-radius: var(--raio);
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            line-height: 1;
+        }
 
-input:focus { /* ✅ CORRIGIDO: ".focus" → ":focus" */
-    border-color: var(--cor-primaria-1);
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(149, 190, 200, 0.1);
-}
+        .btn-adicionar:hover {
+            background-color: var(--cor-primaria-2);
+        }
 
-.botoes {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    margin-top: 20px;
-}
+        /* Lista */
+        .lista {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
 
-button {
-    width: 80%;
-    padding: 12px;
-    font-size: 1rem;
-    font-weight: 500;
-    border: none;
-    border-radius: var(--raio);
-    background-color: var(--cor-primaria-4);
-    color: var(--cor-branco);
-    transition: var(--transition);
-}
+        .lista::-webkit-scrollbar {
+            width: 4px;
+        }
+        .lista::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+        .lista::-webkit-scrollbar-thumb {
+            background: var(--cor-primaria-1);
+            border-radius: 4px;
+        }
 
-button:hover {
-    background-color: var(--cor-primaria-1);
-}
+        /* Cada item */
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--cor-bg);
+            border-radius: 8px;
+            padding: 10px 12px;
+            transition: var(--transition);
+        }
 
-@media (max-width: 360px) {
-    .container {
-        padding: 1.5rem;
-    }
-    input, button {
-        font-size: 0.95rem;
-    }
-}
+        .item:hover {
+            background-color: #ecddd4;
+        }
+
+        /* Ícone de lista (lado esquerdo) */
+        .icone-lista {
+            width: 22px;
+            height: 22px;
+            background-color: var(--cor-primaria-4);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .icone-lista svg {
+            width: 13px;
+            height: 13px;
+            fill: var(--cor-branco);
+        }
+
+        .item.concluido .icone-lista {
+            background-color: var(--cor-primaria-3);
+        }
+
+        /* Texto do item */
+        .item-texto {
+            flex: 1;
+            font-size: 0.95rem;
+            color: var(--cor-texto);
+            text-align: left;
+            word-break: break-word;
+        }
+
+        .item.concluido .item-texto {
+            text-decoration: line-through;
+            color: var(--cor-primaria-3);
+        }
+
+        /* Botão remover (lado direito) */
+        .btn-remover {
+            width: auto;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            background-color: #c0392b;
+            color: var(--cor-branco);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            flex-shrink: 0;
+            font-family: var(--fonte);
+        }
+
+        .btn-remover:hover {
+            background-color: #922b21;
+        }
+
+        /* Mensagem vazia */
+        .lista-vazia {
+            text-align: center;
+            color: var(--cor-primaria-3);
+            font-size: 0.9rem;
+            padding: 20px 0;
+        }
+
+        /* Rodapé */
+        .rodape {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--cor-primaria-3);
+        }
+
+        .btn-limpar {
+            width: auto;
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            background-color: var(--cor-primaria-1);
+            color: var(--cor-primaria-4);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--fonte);
+            font-weight: 600;
+        }
+
+        .btn-limpar:hover {
+            background-color: var(--cor-primaria-3);
+            color: var(--cor-branco);
+        }
+
+        @media (max-width: 360px) {
+            .container { padding: 1.2rem; }
+            .item-texto { font-size: 0.88rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo">🛒 Lista de Compras</h1>
+
+        <div class="input-area">
+            <input type="text" id="inputItem" placeholder="Adicionar item..." />
+            <button class="btn-adicionar" onclick="adicionarItem()">+</button>
+        </div>
+
+        <ul class="lista" id="lista">
+            <li class="lista-vazia" id="msg-vazia">Nenhum item ainda. Adicione algo! 😊</li>
+        </ul>
+
+        <div class="rodape">
+            <span id="contador">0 itens</span>
+            <button class="btn-limpar" onclick="limparLista()">Limpar tudo</button>
+        </div>
+    </div>
+
+    <script>
+        const input = document.getElementById('inputItem');
+        const lista = document.getElementById('lista');
+        const msgVazia = document.getElementById('msg-vazia');
+        const contador = document.getElementById('contador');
+
+        let itens = JSON.parse(localStorage.getItem('listaCompras') || '[]');
+
+        function salvar() {
+            localStorage.setItem('listaCompras', JSON.stringify(itens));
+        }
+
+        function atualizarContador() {
+            const total = itens.length;
+            const concluidos = itens.filter(i => i.concluido).length;
+            contador.textContent = total === 0 ? '0 itens' : `${concluidos}/${total} marcados`;
+        }
+
+        function renderizar() {
+            // Remove todos exceto msg-vazia
+            Array.from(lista.children).forEach(el => {
+                if (el.id !== 'msg-vazia') el.remove();
+            });
+
+            if (itens.length === 0) {
+                msgVazia.style.display = 'block';
+            } else {
+                msgVazia.style.display = 'none';
+                itens.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.className = 'item' + (item.concluido ? ' concluido' : '');
+
+                    li.innerHTML = `
+                        <div class="icone-lista" onclick="toggleConcluido(${index})" title="Marcar como concluído">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6h16M4 10h16M4 14h10"/>
+                                <rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="white" stroke-width="2"/>
+                                <line x1="6" y1="9" x2="18" y2="9" stroke="white" stroke-width="1.5"/>
+                                <line x1="6" y1="13" x2="14" y2="13" stroke="white" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <span class="item-texto">${item.texto}</span>
+                        <button class="btn-remover" onclick="removerItem(${index})">Remover</button>
+                    `;
+                    lista.appendChild(li);
+                });
+            }
+            atualizarContador();
+        }
+
+        function adicionarItem() {
+            const texto = input.value.trim();
+            if (!texto) return;
+            itens.push({ texto, concluido: false });
+            input.value = '';
+            salvar();
+            renderizar();
+            input.focus();
+        }
+
+        function removerItem(index) {
+            itens.splice(index, 1);
+            salvar();
+            renderizar();
+        }
+
+        function toggleConcluido(index) {
+            itens[index].concluido = !itens[index].concluido;
+            salvar();
+            renderizar();
+        }
+
+        function limparLista() {
+            if (itens.length === 0) return;
+            if (confirm('Limpar toda a lista?')) {
+                itens = [];
+                salvar();
+                renderizar();
+            }
+        }
+
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') adicionarItem();
+        });
+
+        renderizar();
+    </script>
+</body>
+</html>
+</parameter>
+</invoke>
