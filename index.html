@@ -46,6 +46,8 @@
             <!-- Compartilhamento -->
             <div class="share-section">
                 <h4>Compartilhar lista</h4>
+                <!-- Badge de usuários ativos (adicionado) -->
+                <div class="active-badge" id="activeBadge">0 online</div>
                 <div class="share-members" id="membersList">
                     <!-- Membros serão inseridos via JS -->
                 </div>
@@ -84,6 +86,18 @@
                     Minhas Compras
                 </h1>
                 <div class="top-actions">
+                    <!-- Botões adicionados -->
+                    <button id="voiceBtn" class="icon-btn" title="Adicionar por voz">🎤</button>
+                    <button id="barcodeBtn" class="icon-btn" title="Ler código de barras">📷</button>
+                    <button id="notificationBtn" class="icon-btn" title="Agendar lembrete">🔔</button>
+                    <button id="historyBtn" class="icon-btn" title="Histórico">📜</button>
+                    <button id="chatGPTSuggestionBtn" class="icon-btn" title="Sugestão ChatGPT">🤖</button>
+                    <select id="sortSelect" class="sort-select">
+                        <option value="manual">Ordenar: Manual</option>
+                        <option value="alfabetica">A-Z</option>
+                        <option value="recente">Recente</option>
+                        <option value="prioridade">Prioridade</option>
+                    </select>
                     <button id="themeToggle" class="icon-btn" title="Tema claro/escuro">
                         <span class="material-icons-round">dark_mode</span>
                     </button>
@@ -146,6 +160,17 @@
                 <div class="divider">ou</div>
                 <button id="generateLinkBtn" class="btn-outline">Gerar link de convite</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Modal de histórico (adicionado) -->
+    <div id="historyModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Histórico de listas</h3>
+                <button class="close-modal">✕</button>
+            </div>
+            <div class="modal-body" id="historyList"></div>
         </div>
     </div>
 
