@@ -1,48 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de compras 3 SIS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Login | Lista Compartilhada</title>
     <link rel="shortcut icon" href="src/img/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="src/css/login.css">
+    <!-- Google Fonts + Ícones -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 </head>
-
 <body>
-    <div class="container">
-        <img id="Logo" src="src/img/Icon 512x512.png" alt="Logo">
-        <h2 class="titulo">Login</h2>
-
-        <div class="entradas">
-            <input type="email" id="email" placeholder="E-mail">
-            <input type="password" id="senha" placeholder="Senha">
+    <div class="split-layout">
+        <!-- Lado esquerdo - branding -->
+        <div class="hero-section">
+            <div class="hero-content">
+                <img src="src/img/Icon 512x512.png" alt="Logo Lista Compartilhada" class="hero-logo">
+                <h1>Lista 3 SIS</h1>
+                <p>Compartilhe suas compras em tempo real<br> com família e amigos.</p>
+                <div class="hero-stats">
+                    <span>✓ Síncrono</span>
+                    <span>✓ Categorias</span>
+                    <span>✓ Grátis</span>
+                </div>
+            </div>
         </div>
 
-        <div class="botoes">
-            <button onclick="login()">Entrar</button>
-            <button onclick="cadastro()">Cadastrar</button>
-        </div>
+        <!-- Lado direito - formulário -->
+        <div class="form-section">
+            <div class="form-card">
+                <div class="form-header">
+                    <h2>Acessar minha conta</h2>
+                    <p>Informe suas credenciais</p>
+                </div>
 
-        <script type="module" src="auth.js"></script>
+                <div class="input-group float-label">
+                    <input type="email" id="email" required autocomplete="email">
+                    <label>E-mail</label>
+                    <span class="material-icons-round input-icon">email</span>
+                    <div class="validation-feedback"></div>
+                </div>
+
+                <div class="input-group float-label">
+                    <input type="password" id="senha" required autocomplete="current-password">
+                    <label>Senha</label>
+                    <span class="material-icons-round input-icon">lock</span>
+                    <button type="button" class="toggle-password" aria-label="Mostrar senha">
+                        <span class="material-icons-round">visibility_off</span>
+                    </button>
+                    <div class="validation-feedback"></div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="remember"> <span>Lembrar-me</span>
+                    </label>
+                    <a href="#" id="forgot-password" class="forgot-link">Esqueci minha senha</a>
+                </div>
+
+                <button id="loginBtn" class="btn-primary">
+                    <span>Entrar</span>
+                    <span class="material-icons-round">arrow_forward</span>
+                </button>
+
+                <div class="divider">
+                    <span>ou</span>
+                </div>
+
+                <button id="guestBtn" class="btn-outline">Continuar como convidado</button>
+
+                <p class="signup-prompt">
+                    Não tem conta? <a href="#" id="signupLink">Criar conta grátis</a>
+                </p>
+            </div>
+        </div>
     </div>
 
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registrado com sucesso:', registration.scope);
-                    })
-                    .catch(error => {
-                        console.log('Falha ao registrar o ServiceWorker:', error);
-                    });
-            });
-        }
-    </script>
-    
+    <div id="toast-message" class="toast hidden"></div>
 
+    <script type="module" src="auth.js"></script>
 </body>
-
 </html>

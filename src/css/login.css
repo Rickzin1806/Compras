@@ -1,22 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
 
 :root {
-    --cor-primaria-1: #DECBB7;
-    --cor-primaria-2: #5C5552;
-    --cor-primaria-3: #8F857D;
-    --cor-primaria-4: #433633;
-    --cor-bg: #F7F0F5;
-
-    --cor-branco: #fff;
-    --cor-preto: #000000;
-    --cor-sombra: rgba(0, 0, 0, 0.15);
-    --cor-texto: #333;
-    --fonte: "Roboto Condensed", monospace;
-
-    --raio: 12px;
-    --transition: 0.3s ease;
-
-
+    --cor-primaria: #433633;
+    --cor-primaria-light: #5C5552;
+    --cor-accent: #DECBB7;
+    --cor-bg-light: #F7F0F5;
+    --cor-branco: #ffffff;
+    --cor-erro: #d32f2f;
+    --cor-sucesso: #2e7d32;
+    --cor-texto: #1e1e2a;
+    --cor-texto-sec: #5a5a6e;
+    --sombra-md: 0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+    --raio-md: 28px;
+    --raio-card: 32px;
+    --transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
 * {
@@ -25,93 +22,303 @@
     box-sizing: border-box;
 }
 
-body { 
-    font-family: var(--fonte); 
-    background: #8F857D; 
-    background: linear-gradient(223deg,rgba(143, 133, 125, 1) 0%, rgba(222, 203, 183, 1) 50%, rgba(143, 133, 125, 1) 100%); 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    min-height: 100vh; 
-    padding: 20px; 
-}
-
-.container {
-    position: relative;
-    background-color: var(--cor-branco);
-    padding: clamp(2rem, 5vm, 3rem);
-    border-radius: var(--raio);
-    box-shadow: 0 8px 24px var(--cor-sombra);
-    width: 80%;
-    max-width: 350px;
-    height: 415px;
-    text-align: center;
-    padding-block: 20px;
-}
-
-#Logo {
-    position: absolute;
-    top: 330px;
-    left: 1px;
-    width: 105px;
-    height: auto;
-}
-
-.titulo {
-    font-size: clamp(1.5rem, 2vh + 1rem, 2rem);
-    color: var(--cor-texto);
-    margin-block: 20px;
-    font-weight: 500;
-}
-
-input {
-    width: 80%;
-    padding: 14px;
-    margin: 10px 0;
-    border: 1px solid var(--cor-preto);
-    border-radius: var(--raio);
-    font-size: 1rem;
-    transition: var(--transition);
-}
-
-input.focus {
-    border-color: var(--cor-primaria-1);
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(149, 190, 200, 0.1);
-}
-
-.botoes {
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f5f0eb 0%, #e8dfd7 100%);
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 12px;
-    margin-top: 20px;
+    justify-content: center;
 }
 
-button {
-    width: 80%;
-    padding: 12px;
+.split-layout {
+    display: flex;
+    width: 100%;
+    max-width: 1280px;
+    min-height: 640px;
+    background: var(--cor-branco);
+    border-radius: var(--raio-card);
+    box-shadow: var(--sombra-md);
+    overflow: hidden;
+    margin: 20px;
+}
+
+/* Lado hero */
+.hero-section {
+    flex: 1.2;
+    background: linear-gradient(145deg, var(--cor-primaria) 0%, #2a2220 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 320px;
+}
+
+.hero-logo {
+    width: 96px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
+}
+
+.hero-content h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.hero-content p {
     font-size: 1rem;
+    line-height: 1.4;
+    opacity: 0.85;
+    margin-bottom: 1.8rem;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    font-size: 0.85rem;
     font-weight: 500;
+}
+
+.hero-stats span {
+    background: rgba(255,255,255,0.15);
+    padding: 6px 14px;
+    border-radius: 40px;
+    backdrop-filter: blur(2px);
+}
+
+/* Lado formulário */
+.form-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cor-branco);
+    padding: 2rem;
+}
+
+.form-card {
+    width: 100%;
+    max-width: 380px;
+}
+
+.form-header {
+    margin-bottom: 2rem;
+}
+
+.form-header h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--cor-texto);
+}
+
+.form-header p {
+    color: var(--cor-texto-sec);
+    margin-top: 6px;
+}
+
+/* Float Label + ícones */
+.input-group {
+    position: relative;
+    margin-bottom: 1.75rem;
+}
+
+.float-label input {
+    width: 100%;
+    padding: 1rem 2.5rem 0.5rem 2.5rem;
+    font-size: 1rem;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 48px;
+    background: #fafafa;
+    transition: var(--transition);
+    outline: none;
+    font-family: 'Inter', monospace;
+}
+
+.float-label input:focus {
+    border-color: var(--cor-primaria);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(67, 54, 51, 0.1);
+}
+
+.float-label label {
+    position: absolute;
+    left: 2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    padding: 0 4px;
+    color: #8a8a9a;
+    pointer-events: none;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.float-label input:focus ~ label,
+.float-label input:not(:placeholder-shown) ~ label {
+    top: 0.2rem;
+    font-size: 0.7rem;
+    background: white;
+    color: var(--cor-primaria);
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: #aaa;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
     border: none;
-    border-radius: var(--raio);
-    background-color: var(--cor-primaria-4);
-    color: var(--cor-branco);
+    cursor: pointer;
+    display: flex;
+    color: #888;
+}
+
+/* Checkbox e opções */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0 1.8rem;
+    font-size: 0.85rem;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: var(--cor-texto-sec);
+}
+
+.forgot-link {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Botões */
+.btn-primary, .btn-outline {
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 48px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     cursor: pointer;
     transition: var(--transition);
+    border: none;
 }
 
-button:hover {
-    background-color: var(--cor-primaria-1);
+.btn-primary {
+    background: var(--cor-primaria);
+    color: white;
+    margin-bottom: 1rem;
 }
 
-@media (max-width:360px) {
-    .container {
-        padding: 1.5rem;
+.btn-primary:hover {
+    background: #2b2321;
+    transform: scale(0.98);
+}
 
+.btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--cor-primaria-light);
+    color: var(--cor-primaria);
+}
+
+.btn-outline:hover {
+    background: #f3efec;
+}
+
+.divider {
+    text-align: center;
+    margin: 1.2rem 0;
+    position: relative;
+}
+
+.divider span {
+    background: white;
+    padding: 0 12px;
+    color: #aaa;
+    font-size: 0.8rem;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background: #e0e0e0;
+    z-index: 0;
+}
+
+.signup-prompt {
+    text-align: center;
+    margin-top: 1.8rem;
+    font-size: 0.85rem;
+    color: var(--cor-texto-sec);
+}
+
+.signup-prompt a {
+    color: var(--cor-primaria);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Toast notification */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e1e2a;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 48px;
+    font-size: 0.85rem;
+    box-shadow: var(--sombra-md);
+    z-index: 1000;
+    transition: opacity 0.2s;
+}
+
+.toast.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* responsivo */
+@media (max-width: 800px) {
+    .split-layout {
+        flex-direction: column;
+        max-width: 480px;
     }
-    input, button {
-        font-size: 0.95rem;
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+    .hero-stats {
+        flex-wrap: wrap;
     }
 }

@@ -1,39 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Lista Compartilhada | 3 SIS</title>
+    <link rel="shortcut icon" href="src/img/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="src/css/index.css">
 </head>
 <body>
+    <div class="app-container">
+        <!-- SIDEBAR ESQUERDA -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="src/img/Icon 512x512.png" alt="Logo" class="sidebar-logo">
+                <h3>Lista 3 SIS</h3>
+                <button class="close-sidebar" id="closeSidebar">✕</button>
+            </div>
 
-    <div class="container">
-        <h2 class="titulo2">Minha lista de compras</h2>
-        <button onclick="logout()">Sair</button>
-        
-        <ul id="lista"></ul>
-        <input type="text" id="item" placeholder="Novo Item">
-        <button onclick="adicionarItem()">Adicionar</button>
+            <!-- Perfil do usuário -->
+            <div class="user-info" id="userInfo">
+                <div class="avatar" id="userAvatar">👤</div>
+                <div class="user-details">
+                    <span id="userName">Carregando...</span>
+                    <small id="userEmail"></small>
+                </div>
+                <button id="logoutBtn" class="logout-icon" title="Sair">
+                    <span class="material-icons-round">logout</span>
+                </button>
+            </div>
+
+            <!-- Estatísticas -->
+            <div class="stats-card">
+                <h4>Progresso</h4>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="stats-numbers">
+                    <span><strong id="totalItems">0</strong> total</span>
+                    <span><strong id="completedItems">0</strong> concluídos</span>
+                </div>
+            </div>
+
+            <!-- Compartilhamento -->
+            <div class="share-section">
+                <h4>Compartilhar lista</h4>
+                <div class="share-members" id="membersList">
+                    <!-- Membros serão inseridos via JS -->
+                </div>
+                <button id="inviteBtn" class="btn-invite">
+                    <span class="material-icons-round">person_add</span>
+                    Convidar pessoa
+                </button>
+                <div class="share-link" id="shareLinkContainer" style="display: none;">
+                    <input type="text" id="shareLink" readonly>
+                    <button id="copyLinkBtn">Copiar</button>
+                </div>
+            </div>
+
+            <!-- Ações rápidas -->
+            <div class="quick-actions">
+                <button id="clearAllBtn" class="btn-danger">
+                    <span class="material-icons-round">delete_sweep</span>
+                    Limpar tudo
+                </button>
+                <button id="exportBtn" class="btn-secondary">
+                    <span class="material-icons-round">download</span>
+                    Exportar
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <!-- Top bar -->
+            <div class="top-bar">
+                <button id="menuToggle" class="menu-toggle">
+                    <span class="material-icons-round">menu</span>
+                </button>
+                <h1 class="page-title">
+                    <span class="material-icons-round">shopping_cart</span>
+                    Minhas Compras
+                </h1>
+                <div class="top-actions">
+                    <button id="themeToggle" class="icon-btn" title="Tema claro/escuro">
+                        <span class="material-icons-round">dark_mode</span>
+                    </button>
+                    <button id="refreshBtn" class="icon-btn" title="Atualizar">
+                        <span class="material-icons-round">sync</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Formulário de adição -->
+            <div class="add-item-card">
+                <div class="add-item-form">
+                    <input type="text" id="inputItem" placeholder="O que você precisa comprar?" autocomplete="off">
+                    <input type="number" id="inputQtd" value="1" min="1" step="1">
+                    <select id="inputCat">
+                        <option value="Geral">📦 Geral</option>
+                        <option value="Hortifruti">🥬 Hortifruti</option>
+                        <option value="Laticínios">🥛 Laticínios</option>
+                        <option value="Carnes">🥩 Carnes</option>
+                        <option value="Padaria">🥖 Padaria</option>
+                        <option value="Bebidas">🥤 Bebidas</option>
+                        <option value="Limpeza">🧼 Limpeza</option>
+                        <option value="Higiene">🧴 Higiene</option>
+                    </select>
+                    <button id="addBtn" class="btn-add">
+                        <span class="material-icons-round">add</span>
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filtros rápidos -->
+            <div class="filters-bar" id="filtersBar">
+                <button class="filter-chip active" data-filter="Todos">Todos</button>
+            </div>
+
+            <!-- Lista de compras -->
+            <div class="shopping-list" id="shoppingList">
+                <div class="loading-state">
+                    <span class="material-icons-round">shopping_bag</span>
+                    <p>Carregando sua lista...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast notification -->
+    <div id="toastMessage" class="toast-notification hidden"></div>
+
+    <!-- Modal de convite -->
+    <div id="inviteModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Convidar para lista</h3>
+                <button class="close-modal">✕</button>
+            </div>
+            <div class="modal-body">
+                <input type="email" id="inviteEmail" placeholder="E-mail do convidado">
+                <button id="sendInviteBtn">Enviar convite</button>
+                <div class="divider">ou</div>
+                <button id="generateLinkBtn" class="btn-outline">Gerar link de convite</button>
+            </div>
+        </div>
     </div>
 
     <script type="module" src="app.js"></script>
-
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registrado com sucesso:', registration.scope);
-                    })
-                    .catch(error => {
-                        console.log('Falha ao registrar o ServiceWorker:', error);
-                    });
-            });
-        }
-    </script>
-    
-
-    
 </body>
 </html>
